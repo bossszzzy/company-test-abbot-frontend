@@ -1,6 +1,9 @@
 import { Blog } from "./blog.type";
 
-export type Filters = { q: string; status: "all" | "public" | "unpublic" | undefined};
+export const statuses = ["all", "public", "unpublic"] as const
+export type Status = typeof statuses[number]
+
+export type Filters = { q: string; status: Status };
 
 export type BlogState = {
   blogs: Blog[];

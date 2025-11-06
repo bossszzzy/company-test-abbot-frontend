@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2, PencilLine } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
+import { Filters, Status } from "@/types/blog.store.type";
 
 
 export default function BlogTable() {
@@ -65,7 +66,7 @@ export default function BlogTable() {
             onChange={(e) => setFilters({ q: e.target.value })}
             className="w-full sm:w-72"
           />
-          <Select value={filters.status} onValueChange={(v) => setFilters({ status: v as any })}>
+          <Select value={filters.status} onValueChange={(v) => setFilters({ status: v as Status })}>
             <SelectTrigger className="w-[140px]"><SelectValue placeholder="Status" /></SelectTrigger>
             <SelectContent className="bg-white">
               <SelectItem value="all">all</SelectItem>
